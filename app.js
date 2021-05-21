@@ -278,6 +278,13 @@ function processArgs(args, options) {
         boolean: true,
         default: false
       },
+      signAssertion: {
+        description: 'Enables signing of assertions',
+        required: false,
+        boolean: true,
+        default: true,
+        alias: 'signAssertion'
+      },
       signResponse: {
         description: 'Enables signing of responses',
         required: false,
@@ -367,6 +374,8 @@ function _runServer(argv) {
       {cyan ${argv.issuer}}
     Sign Response Message:
       {cyan ${argv.signResponse}}
+    Sign Assertion:
+      {cyan ${argv.signAssertion}}
     Encrypt Assertion:
       {cyan ${argv.encryptAssertion}}
     Authentication Context Class Reference:
@@ -410,6 +419,7 @@ function _runServer(argv) {
     digestAlgorithm:        'sha256',
     signatureAlgorithm:     'rsa-sha256',
     signResponse:           argv.signResponse,
+    signAssertion:          argv.signAssertion,
     encryptAssertion:       argv.encryptAssertion,
     encryptionCert:         argv.encryptionCert,
     encryptionPublicKey:    argv.encryptionPublicKey,
